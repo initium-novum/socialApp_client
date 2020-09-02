@@ -1,4 +1,7 @@
 import React from "react";
+
+import Background from '../images/gbike2.jpg';
+
 import {
   Button,
   Avatar,
@@ -12,6 +15,7 @@ import {
   TextField,
   CssBaseline,
   Typography,
+  StylesProvider,
 } from "@material-ui/core";
 import { style } from "typestyle";
 
@@ -31,13 +35,15 @@ function Copyright() {
 export const Home = () => {
   return (
     <Grid container className={styles.root}>
-      <Grid item xs={false} sm={4} md={7} className={styles.image} />
+      <Grid item xs={false} sm={4} md={7} className={styles.image} component={Paper} elevation={10} square/>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={styles.paper}>
           <Avatar className={styles.avatar}></Avatar>
+          <Box mt={1}>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign In
           </Typography>
+          </Box>
           <form className={styles.form} noValidate>
             <TextField
               variant="outlined"
@@ -61,10 +67,7 @@ export const Home = () => {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+          
             <Button
               type="submit"
               fullWidth
@@ -74,6 +77,10 @@ export const Home = () => {
             >
               Sign In
             </Button>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -86,7 +93,7 @@ export const Home = () => {
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
+            <Box mt={40}>
               <Copyright />
             </Box>
           </form>
@@ -101,7 +108,7 @@ const styles = {
     height: "90vh",
   }),
   image: style({
-    backgroundImage: "url(https://source.unsplash.com/random)",
+    backgroundImage: "url(" + ( Background ) + ")",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -114,15 +121,17 @@ const styles = {
     alignItems: "center",
   }),
   avatar: style({
-    marginTop: "8px",
+    marginTop: "50px",
     backgroundColor: "#a100ff",
   }),
   form: style({
-    width: "100%", // Fix IE 11 issue.
-    marginTop: "8px",
+    width: "80%", // Fix IE 11 issue.
+    marginTop: "20px",
   }),
   submit: style({
-    margin: "10px",
+    marginTop: '8px',
+    marginBottom: '8px',
     backgroundColor: "#3d0099",
+    height: '50px',
   }),
 };
